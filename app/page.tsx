@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import Image from "next/image";
 import {
   Mail, MessageSquare, Calendar, BarChart3, Files, ShieldCheck,
   Sparkles, ArrowRight, CheckCircle2, Star, Globe, Zap,
@@ -8,7 +9,7 @@ import {
   Check, X as XIcon, ChevronDown
 } from "lucide-react";
 
-const NAV_LINKS = ["Features", "Security", "Analytics", "Pricing"];
+const NAV_LINKS = ["Features", "AI", "Security", "Analytics", "Pricing"];
 
 const FEATURES = [
   { icon: Mail, title: "Smart Inbox", desc: "AI-powered email summaries, priority sorting, and one-click reply drafts. Stay on top of every message, round the clock.", color: "text-blue-500", bg: "bg-blue-50" },
@@ -202,9 +203,12 @@ export default function Page() {
       {/* Navbar */}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-black text-xl tracking-tight">
-            <div className="w-8 h-8 rounded-lg bg-[hsl(222_22%_20%)] text-white flex items-center justify-center font-black text-xs">AE</div>
-            <span className="text-[hsl(222_22%_20%)]">AELO</span>
+          <div className="flex items-center gap-3">
+            <Image src="/logo.svg" alt="AELO logo" width={36} height={36} className="rounded-xl bg-[hsl(222_22%_20%)] p-2" />
+            <div>
+              <p className="text-[hsl(222_22%_20%)] font-black">AELO</p>
+              <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400">Business Suite</p>
+            </div>
           </div>
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map(l => (
@@ -243,6 +247,17 @@ export default function Page() {
             <a href="#pricing" className="w-full sm:w-auto border border-white/30 text-white/80 font-semibold px-8 py-3.5 rounded-xl hover:bg-white/10 transition-colors text-center">
               View Pricing
             </a>
+          </div>
+          <div className="mt-12 flex justify-center">
+            <div className="w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl">
+              <Image
+                src="/dashboard.png"
+                alt="AELO dashboard preview"
+                width={1200}
+                height={720}
+                className="w-full h-auto rounded-[1.5rem]"
+              />
+            </div>
           </div>
           <div className="mt-16 flex items-center justify-center gap-6 text-xs text-white/40">
             <div className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />All systems operational</div>
@@ -287,6 +302,41 @@ export default function Page() {
         </div>
       </section>
 
+      {/* AI */}
+      <section id="ai" className="bg-[hsl(222_26%_14%)] text-white py-24">
+        <div className="max-w-6xl mx-auto px-6 grid gap-12 lg:grid-cols-2 items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-amber-300 mb-3">Powered by AI</p>
+            <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight">Claude AI helps you write faster, send smarter, and stay secure.</h2>
+            <p className="text-white/70 mb-8 leading-relaxed">
+              AELO's AI assistant drafts emails, summarizes threads, suggests replies, and highlights risks so your team can ship work without switching tools.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { title: "Smart email drafting", desc: "Generate polished replies in seconds." },
+                { title: "Instant summaries", desc: "Turn long threads into quick next steps." },
+                { title: "AI-generated follow-ups", desc: "Never miss a promise or deadline again." },
+                { title: "Risk detection", desc: "Spot suspicious emails before you reply." },
+              ].map(item => (
+                <div key={item.title} className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                  <h3 className="font-semibold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-white/70">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl overflow-hidden">
+            <Image
+              src="/inbox.png"
+              alt="AELO inbox with AI features"
+              width={800}
+              height={600}
+              className="w-full h-auto rounded-3xl"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Security */}
       <section id="security" className="bg-[hsl(222_26%_14%)] text-white py-24">
         <div className="max-w-6xl mx-auto px-6">
@@ -307,40 +357,19 @@ export default function Page() {
                 ))}
               </ul>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-              <div className="bg-white/10 border border-white/10 rounded-xl p-4 mb-4 text-sm">
-                <div className="flex items-center gap-2 mb-3 pb-3 border-b border-white/10">
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">AM</div>
-                  <div>
-                    <p className="font-medium text-white text-xs">Alex Morgan</p>
-                    <p className="text-white/50 text-xs">alex.morgan@yourcompany.com</p>
-                  </div>
-                </div>
-                <p className="text-white/80 text-xs leading-relaxed mb-4">Hi Sarah, please find the Q3 report attached for your review. Let me know if you have any questions.</p>
-                <div className="border-t border-white/10 pt-3 text-xs text-white/60 space-y-0.5">
-                  <p className="font-semibold text-white/80">Alex Morgan</p>
-                  <p>Head of Operations · Your Company</p>
-                  <p>alex.morgan@yourcompany.com · +1 (555) 234-5678</p>
-                </div>
-                <div className="mt-3 border border-emerald-500/30 rounded-lg bg-emerald-500/5 overflow-hidden">
-                  <div className="flex items-center gap-2 bg-emerald-500/10 px-3 py-2">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <div>
-                      <p className="text-xs font-bold text-emerald-400">VERIFIED OFFICIAL COMMUNICATION</p>
-                      <p className="text-xs text-emerald-400/70">Your Company · Sent via AELO</p>
-                    </div>
-                    <div className="ml-auto w-7 h-7 rounded-full border border-emerald-500/40 flex items-center justify-center">
-                      <p className="text-emerald-400 font-black" style={{ fontSize: "6px" }}>AEL</p>
-                    </div>
-                  </div>
-                  <div className="px-3 py-2 space-y-1">
-                    <div className="flex justify-between text-xs"><span className="text-white/40">Authenticity ID</span><span className="font-mono text-white/80">AEL-20260509-X7R2K</span></div>
-                    <div className="flex justify-between text-xs"><span className="text-white/40">Sender domain</span><span className="text-white/70">yourcompany.com</span></div>
-                    <div className="flex justify-between text-xs"><span className="text-white/40">Verify at</span><span className="text-emerald-400/80 underline">verify.aelo.com</span></div>
-                  </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-6">
+              <div className="flex gap-4">
+                <div className="flex-1">
+                  <Image
+                    src="/login.png"
+                    alt="AELO login screen"
+                    width={400}
+                    height={500}
+                    className="w-full h-auto rounded-xl"
+                  />
                 </div>
               </div>
-              <p className="text-center text-xs text-white/40">How your emails look to every recipient</p>
+              <p className="text-center text-xs text-white/40">Secure login & verification built in</p>
             </div>
           </div>
         </div>
