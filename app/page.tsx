@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import {
   Mail, MessageSquare, Calendar, BarChart3, Files, ShieldCheck,
