@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,5 +20,33 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-panel {
+  backdrop-filter: blur(20px);
+  background: rgba(19, 19, 27, 0.6);
+}
+
+.ambient-glow {
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.bg-gradient-indigo {
+  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 40%),
+              radial-gradient(circle at bottom left, rgba(73, 75, 214, 0.05), transparent 30%);
+}
+
+.input-focus-glow:focus-within {
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
 }
